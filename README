@@ -1,0 +1,21 @@
+The libevent-book is awesome, I learn a lot from this: http://www.wangafu.net/~nickm/libevent-book/
+
+The client needs non-blocking libevent dispatch, I should complete it sooner or later.
+
+Step of client:
+1. make up a new event base. (event_base is used to determine which event is active)
+2. setup socket parameter, like ip and port. 
+3. make up a new bufferevent. (bufferevent is used to holding transport like socket, and
+	read buffer and write buffer.
+4. setup callback on bufferevent, so the proper event will trigger proper callback 
+	function.
+5. connect to server using bufferevent_socket_connect.
+6. enable read and write event.
+7. run event dispatch to monitor the event happened on evenbase.
+
+Step of server:
+1. make up a new event base.
+2. setup socket parameter.
+3. bind to specific socket and setup listener callback.
+4. [optional] setup signal event callback.
+5. event dispatch on eventbase.
