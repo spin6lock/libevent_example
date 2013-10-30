@@ -5,10 +5,8 @@ The client needs non-blocking libevent dispatch, I should complete it sooner or 
 Step of client:
 1. make up a new event base. (event_base is used to determine which event is active)
 2. setup socket parameter, like ip and port. 
-3. make up a new bufferevent. (bufferevent is used to holding transport like socket, and
-	read buffer and write buffer.
-4. setup callback on bufferevent, so the proper event will trigger proper callback 
-	function.
+3. make up a new bufferevent. (bufferevent is used to holding transport like socket, and read buffer and write buffer.
+4. setup callback on bufferevent, so the proper event will trigger proper callback function.
 5. connect to server using bufferevent_socket_connect.
 6. enable read and write event.
 7. run event dispatch to monitor the event happened on evenbase.
